@@ -1,36 +1,63 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Portfolio — Nacho
 
-## Getting Started
+Portfolio personal con panel de administración integrado.
 
-First, run the development server:
+## Stack
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+- **Framework:** Next.js 15 (App Router) + TypeScript
+- **Estilos:** Tailwind CSS + shadcn/ui
+- **DB:** Supabase (PostgreSQL)
+- **ORM:** Prisma
+- **Auth:** NextAuth.js
+- **Deploy:** Vercel
+
+## Secciones públicas
+
+- **Hero** — nombre, tagline, intro rápida
+- **Sobre mí** — descripción personal y enfoque profesional
+- **Stack/Tecnologías** — herramientas que uso
+- **Proyectos** — lista con preview + página de detalle por proyecto
+- **Contacto** — formulario funcional que manda mail + links a redes
+- **CV** — descargable en PDF
+
+## Panel de administración (`/admin`)
+
+- Login con NextAuth (solo yo)
+- CRUD de proyectos: crear, editar, eliminar
+- Accesible solo con sesión autenticada
+
+## Estructura de carpetas (objetivo)
+
+```
+src/
+├── app/
+│   ├── (public)/          # rutas públicas (home, proyectos, etc.)
+│   ├── admin/             # panel de administración
+│   └── api/               # API routes (auth, proyectos, contacto)
+├── components/
+│   ├── ui/                # componentes de shadcn (auto-generados)
+│   ├── layout/            # Navbar, Footer, etc.
+│   └── sections/          # secciones del home (Hero, About, Projects...)
+├── lib/                   # utilidades, config de Prisma, NextAuth, etc.
+└── types/                 # tipos TypeScript compartidos
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Principios de desarrollo
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- Componentes pequeños, con una sola responsabilidad
+- Diseño mobile-first
+- TypeScript estricto desde el arranque
+- shadcn/ui como base de componentes, sin reinventar la rueda
+- Primero funciona, después se pule
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Roadmap
 
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- [ ] Setup inicial (Next.js + Git + Supabase + Prisma)
+- [ ] Layout base (Navbar + Footer)
+- [ ] Secciones públicas estáticas
+- [ ] Integración con DB (proyectos dinámicos)
+- [ ] Panel admin + auth
+- [ ] Formulario de contacto (mail)
+- [ ] CV descargable
+- [ ] Deploy en Vercel
+- [ ] Diseño / polish visual
